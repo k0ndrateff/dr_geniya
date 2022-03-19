@@ -1,11 +1,24 @@
 let x = 0;
-let g = -1;
+let g = -0.5;
 let a = 0;
+let font,
+  fontsize = 56;
+let song;
+
+function preload() {
+   song = loadSound('track.mp3'); 
+   bg = loadImage('stroga.jpg');
+    skin = loadImage('skin1.png');
+    obstacle = loadImage('obst.jpg');
+    font = loadFont('LetoTextSansDefect.otf');
+}
 
 function setup() {
-    bg = loadImage('stroga.jpg');
-    skin = loadImage('skin1.png')
+    textFont(font);
+    textSize(fontsize);
+    textAlign(CENTER, CENTER);
     createCanvas(window.innerWidth, window.innerHeight); 
+    song.loop();
 }
 
 let player = {
@@ -14,16 +27,45 @@ let player = {
     score: 0,
 };
 
+obstacleX = 0;
+
 function draw() {
     background(bg);
-    image(skin, 0, height / 1.8 - player.y, skin.width / 8, skin.height / 8);
+    image(skin, 100, height - (skin.height / 8) - player.y, skin.width / 8, skin.height / 8);
 
     if (mouseIsPressed && player.y == 0) {
-        a = 25;
+        a = 20;
     }
     player.y += a;
     a += g;
     if (player.y <= 0) {
         player.y = 0;
     }
+
+    image(obstacle, width - obstacleX, height - (obstacle.height / 4), obstacle.width / 4, obstacle.height / 4);
+    obstacleX += 10;
+
+    if (obstacleX >= randomWidth() * width) {
+        obstacleX = 0;
+        player.score += 1;
+    }
+    if (player.score >= 20) {
+        endGame();
+    }
+
+    fill(0);
+    text('счет  ' +player.score, width / 2 - 50, 30);
+
+    if (width - obstacleX <= 300 && width - obstacleX >= 100 && player.y < obstacle.height / 4) {
+        player.score = 0;
+        obstacleX = 0;
+    }
+}
+
+function randomWidth() {
+    return (Math.random() * 7 + 1)
+}
+
+function endGame() {
+
 }
