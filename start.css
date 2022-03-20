@@ -1,0 +1,46 @@
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu+Mono:ital,wght@1,700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+h1 {
+    font-family: 'Ubuntu Mono', monospace;
+    font-style: italic;
+    color: #da5252;
+    font-size: 12.3vw;
+    background: linear-gradient(to right, #FC5C7D 10%, #6A82FB 40%, #bc4e9c 60%, #FC5C7D 90%);
+    background-size: 200% auto;
+    
+    color: #000;
+    background-clip: text;
+    text-fill-color: transparent;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    
+    animation: shine 5s linear infinite;
+    
+}
+
+@keyframes shine {
+      to {
+        background-position: 200% center;
+      }
+}
+
+.cat {
+    width: 40%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+h2 {
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 60px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}

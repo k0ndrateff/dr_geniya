@@ -8,7 +8,9 @@ let song;
 function preload() {
    song = loadSound('track.mp3'); 
    bg = loadImage('stroga.jpg');
-    skin = loadImage('skin1.png');
+   if (getParameterByName('skin') == 'alina') {
+       skin = loadImage('skin1.png');
+   }
     obstacle = loadImage('obst.jpg');
     font = loadFont('LetoTextSansDefect.otf');
 }
@@ -49,7 +51,7 @@ function draw() {
         obstacleX = 0;
         player.score += 1;
     }
-    if (player.score >= 20) {
+    if (player.score >= 20 && getParameterByName('first')) {
         endGame();
     }
 
@@ -67,5 +69,14 @@ function randomWidth() {
 }
 
 function endGame() {
+    window.location.href = '/endgame.html';
+}
 
+function getParameterByName(name, url = window.location.href) {
+    name = name.replace(/[\[\]]/g, '\\$&');
+    var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'),
+        results = regex.exec(url);
+    if (!results) return null;
+    if (!results[2]) return '';
+    return decodeURIComponent(results[2].replace(/\+/g, ' '));
 }
