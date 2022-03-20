@@ -3,7 +3,6 @@ let g = -0.5;
 let a = 0;
 let font,
   fontsize = 56;
-let song;
 
 function preload() {
    bg = loadImage('stroga.jpg');
@@ -14,13 +13,11 @@ function preload() {
 }
 
 function setup() {
-    song = loadSound('track.mp3');
     font = loadFont('LetoTextSansDefect.otf'); 
     textFont(font);
     textSize(fontsize);
     textAlign(CENTER, CENTER);
     createCanvas(window.innerWidth, window.innerHeight); 
-    song.loop();
 }
 
 let player = {
