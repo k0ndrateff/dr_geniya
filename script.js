@@ -69,7 +69,7 @@ function randomWidth() {
 }
 
 function endGame() {
-    window.location.href = '/endgame.html';
+    window.location.href = '/dr_geniya/endgame.html';
 }
 
 function getParameterByName(name, url = window.location.href) {
