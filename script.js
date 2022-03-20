@@ -3,10 +3,8 @@ let g = -0.5;
 let a = 0;
 let font,
   fontsize = 56;
-let song;
 
 function preload() {
-   song = loadSound('track.mp3'); 
    bg = loadImage('stroga.jpg');
    if (getParameterByName('skin') == 'alina') {
        skin = loadImage('skin1.png');
@@ -51,7 +49,7 @@ function draw() {
         obstacleX = 0;
         player.score += 1;
     }
-    if (player.score >= 20 && getParameterByName('first')) {
+    if (player.score >= 20 && getParameterByName('first') === '') {
         endGame();
     }
 
