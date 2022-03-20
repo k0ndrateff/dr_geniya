@@ -9,6 +9,9 @@ function preload() {
    if (getParameterByName('skin') == 'alina') {
        skin = loadImage('skin1.png');
    }
+   else if (getParameterByName('skin') == 'egor') {
+       skin = loadImage('skin2.png');
+   }
     obstacle = loadImage('obst.jpg');
 }
 
