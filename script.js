@@ -6,16 +6,16 @@ let font,
 let song;
 
 function preload() {
-   song = loadSound('track.mp3'); 
    bg = loadImage('stroga.jpg');
    if (getParameterByName('skin') == 'alina') {
        skin = loadImage('skin1.png');
    }
     obstacle = loadImage('obst.jpg');
-    font = loadFont('LetoTextSansDefect.otf');
 }
 
 function setup() {
+    song = loadSound('track.mp3');
+    font = loadFont('LetoTextSansDefect.otf'); 
     textFont(font);
     textSize(fontsize);
     textAlign(CENTER, CENTER);
@@ -45,7 +45,7 @@ function draw() {
     }
 
     image(obstacle, width - obstacleX, height - (obstacle.height / 4), obstacle.width / 4, obstacle.height / 4);
-    obstacleX += 10;
+    obstacleX += 10 * (1 + player.score / 40);
 
     if (obstacleX >= randomWidth() * width) {
         obstacleX = 0;
